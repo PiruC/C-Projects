@@ -37,7 +37,7 @@ void GRABAR_TOP10(FILE *top10,float Top10_views[],int Top10_id[]);  // Graba en 
 int main ()
 {
     FILE *archivo_pelicula,*archivo_datos7dias;
-    int opcion;
+    int opcion,contpelis,views,i ;
 
     printf("Bievenidos al programa\n");
     // Inicializamos el registro
@@ -65,7 +65,23 @@ int main ()
             }
             case 3:
             {
-                OPCION3();
+                printf("Ingrese cantidad de visualizaciones= ");
+                scanf("%d", &views);
+                printf("\n");
+                contpelis=0;
+                i=0;
+                while(i<=MAX_PELICULAS){
+                    i=i+1;
+                    while(views<ListaPeliculas[i].Views_Total){
+                        printf("\tPelicula--Visualizaciones\n %s -- %.0f\n\n", ListaPeliculas[i].Nombre, ListaPeliculas[i].Views_Total);
+                        contpelis=contpelis+1;
+                        i=i+1;
+                    }
+                }
+                if(contpelis==0)
+                    printf("Ningun titulo fue visto tantas veces!\n\n");
+
+
             break;
             }
             case 4:
@@ -169,11 +185,7 @@ void OPCION2 (void)
 
     return;
 }
-void OPCION3 (void)
-{
 
-    return;
-}
 void OPCION4 (void)
 {
 	int dia,lista;
@@ -197,7 +209,7 @@ void RANKING (void)
     FILE *archivo_top10;
     float Top10_views[TOP10];
     int Top10_id[TOP10];
-
+	CargaTotalViews();
     //Carga el total de visualizaciones
 	if (!Cant_opc1) CargaTotalViews();
     //Genera una nueva lista con el top10 de visualizaciones y de IDs de peliculas 
