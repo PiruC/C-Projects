@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presupuesto - Rectificadora de Motores</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container" id="print-area">
+    <div class="header">
+      <h1>Presupuesto de Rectificación de Motores</h1>
+      <div class="company-info">
+        <h2>Tu Empresa de Rectificación</h2>
+        <p>Dirección: Calle Principal 123</p>
+        <p>Teléfono: (123) 456-7890</p>
+      </div>
+    </div>
+    
+    <form id="budget-form">
+      <div class="client-info">
+        <div class="form-group">
+          <label for="client-name">Nombre del Cliente:</label>
+          <input type="text" id="client-name" name="client-name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="client-phone">Teléfono:</label>
+          <input type="tel" id="client-phone" name="client-phone">
+        </div>
+        
+        <div class="form-group">
+          <label for="motor-details">Motor:</label>
+          <input type="text" id="motor-details" name="motor-details" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="date">Fecha:</label>
+          <input type="date" id="date" name="date">
+        </div>
+      </div>
+      
+      <div class="services-container">
+        <table id="services-table">
+          <thead>
+            <tr>
+              <th>Seleccionar</th>
+              <th>Servicio / Tarea</th>
+              <th>Descripción</th>
+              <th>Precio (USD)</th>
+            </tr>
+          </thead>
+          <tbody id="services-body">
+            <!-- Los servicios se agregarán dinámicamente aquí -->
+          </tbody>
+        </table>
+        
+        <button type="button" id="add-row-btn" class="action-btn">Agregar Fila</button>
+        
+        <div class="totals-section">
+          <div class="total-row">
+            <span>Subtotal:</span>
+            <span id="subtotal">USD 0.00</span>
+          </div>
+          <div class="total-row">
+            <span>IVA (21%):</span>
+            <span id="tax">USD 0.00</span>
+          </div>
+          <div class="total-row total">
+            <span>TOTAL:</span>
+            <span id="total">USD 0.00</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="notes-section">
+        <label for="notes">Observaciones:</label>
+        <textarea id="notes" name="notes" rows="3"></textarea>
+      </div>
+      
+      <div class="action-buttons">
+        <button type="button" id="print-btn" class="action-btn primary">Imprimir Presupuesto</button>
+        <button type="button" id="save-btn" class="action-btn">Guardar</button>
+        <button type="reset" id="clear-btn" class="action-btn">Limpiar</button>
+      </div>
+    </form>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
